@@ -1,5 +1,3 @@
-"use strict";
-exports.__esModule = true;
 var grid = [
     [0, 0, 2, 16],
     [16, 2, 16, 0],
@@ -10,9 +8,9 @@ function combineRight(strippedArray) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
         //console.log("here" + strippedArray[strippedArray.length - 2])
-        console.log("first " + strippedArray[strippedArray.length - 2] + "second " + strippedArray[strippedArray.length - 1]);
+        // console.log("first " + strippedArray[strippedArray.length - 2] + "second "+ strippedArray[strippedArray.length - 1])
         for (var i = strippedArray.length - 1; i >= 0; i--) {
-            console.log(strippedArray[i] + i);
+            //   console.log(strippedArray[i] + i )
             if (strippedArray[i + 1] === strippedArray[i]) {
                 strippedArray[i + 1] = strippedArray[i] * 2;
                 strippedArray[i] = 0;
@@ -47,16 +45,18 @@ function combineLeft(strippedArray) {
     //return proccessed row
     return strippedArray;
 }
-function swipe(board) {
+module.exports = function swipe(board, direction) {
     var newBoard = [];
     board.map(function (row) {
         //remove zeroes 
         var zerosStrippedArray = row.filter(function (num) { return num !== 0; });
         //push processed row into result board 
-        console.log(zerosStrippedArray);
-        newBoard.push(combineRight(zerosStrippedArray));
+        var afterSwipe = [];
+        if (direction === "right")
+            afterSwipe = combineRight(zerosStrippedArray);
+        if (direction === "left")
+            afterSwipe = combineLeft(zerosStrippedArray);
+        newBoard.push(afterSwipe);
     });
     return newBoard;
-}
-console.log("Before: " + grid);
-console.log(swipe(grid));
+};

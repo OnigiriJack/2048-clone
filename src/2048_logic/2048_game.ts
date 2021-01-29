@@ -1,19 +1,10 @@
-
-
-let grid: number[][]=  [
-        [0, 0, 2, 16],
-        [16, 2, 16, 0],
-        [0, 32, 0, 32],
-        [8, 4, 2, 2]
-    ]
-
 function combineRight(strippedArray: number[]) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
         //console.log("here" + strippedArray[strippedArray.length - 2])
-        console.log("first " + strippedArray[strippedArray.length - 2] + "second "+ strippedArray[strippedArray.length - 1])
+       // console.log("first " + strippedArray[strippedArray.length - 2] + "second "+ strippedArray[strippedArray.length - 1])
         for (let i = strippedArray.length - 1; i >= 0; i--) {
-           console.log(strippedArray[i] + i )
+        //   console.log(strippedArray[i] + i )
             if (strippedArray[i + 1] === strippedArray[i]) {
                 
                 strippedArray[i + 1] = strippedArray[i] * 2;
@@ -50,16 +41,13 @@ function combineLeft(strippedArray: number[]) {
     //return proccessed row
     return strippedArray
 }
-
-export default function swipe(board: number[][], direction: string) {
+module.exports = function swipe(board: number[][], direction: string) {
     let newBoard: number[][] = [];
     board.map(row => {
         //remove zeroes 
         let zerosStrippedArray = row.filter(num => num !== 0);
         //push processed row into result board 
-        console.log(zerosStrippedArray)
         let afterSwipe: number[] = [];
-
         if (direction === "right") afterSwipe = combineRight(zerosStrippedArray);
         if (direction === "left") afterSwipe = combineLeft(zerosStrippedArray);
 

@@ -1,8 +1,19 @@
+const swipe = require("./2048_game.js")
+let grid = [
+    [4, 4, 4, 4],
+    [4, 2, 0, 2],
+    [0, 0, 4, 0],
+    [4, 4, 2, 2]
+]
 
-const { swipe } = require("./2048_game")
-
+console.log(swipe)
 test("is a board", () => {
-    expect(2).toBe(2)
+    expect(swipe(grid, "left")).toStrictEqual([
+        [8, 8, 0, 0],
+        [4, 4, 0, 0],
+        [4, 0, 0, 0],
+        [8, 4, 0, 0]
+    ])
 })
 
 
