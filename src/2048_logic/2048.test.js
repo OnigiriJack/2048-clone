@@ -35,8 +35,6 @@ test("Left swipe Case 2", () => {
 
 
 
-
-
 test("Right Swipe Case 1 ", () => {
     let grid = [
         [0, 0, 2, 16],
@@ -45,26 +43,26 @@ test("Right Swipe Case 1 ", () => {
         [8, 4, 2, 2]
     ]
     expect(swipe(grid, "right")).toStrictEqual([
-        [2, 16, 0, 0],
-        [16, 2, 16, 0],
-        [64, 0, 0, 0],
-        [8, 4, 4, 0]
+        [0, 0, 2, 16],
+        [0, 16, 2, 16],
+        [0, 0, 0, 64],
+        [0, 8, 4, 4]
     ])
 })
 
 
-test("Solves swipe Case 2 ", () => {
+test("Right swipe Case 2 ", () => {
     let grid = [
         [0, 0, 2, 16],
         [16, 2, 16, 0],
         [0, 32, 0, 32],
-        [8, 4, 2, 2]
+        [128, 4, 0, 2]
     ]
     expect(swipe(grid, "right")).toStrictEqual([
-        [2, 16, 0, 0],
-        [16, 2, 16, 0],
-        [64, 0, 0, 0],
-        [8, 4, 4, 0]
+        [0, 0, 2, 16],
+        [0, 16, 2, 16],
+        [0, 0, 0, 64],
+        [0, 128, 4, 2]
     ])
 })
 
