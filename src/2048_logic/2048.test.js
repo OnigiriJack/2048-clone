@@ -1,4 +1,6 @@
 const swipe = require("./2048_game.js")
+
+
 let gridLeftOne = [
     [4, 4, 4, 4],
     [4, 2, 0, 2],
@@ -6,15 +8,15 @@ let gridLeftOne = [
     [4, 4, 2, 2]
 ]
 
-console.log(swipe)
 test("Left swipe Case 1", () => {
-    expect(swipe(gridLeftone, "left")).toStrictEqual([
+    expect(swipe(gridLeftOne, "left")).toStrictEqual([
         [8, 8, 0, 0],
         [4, 4, 0, 0],
         [4, 0, 0, 0],
         [8, 4, 0, 0]
     ])
 })
+
 let gridLeftTwo = [
     [0, 0, 2, 16],
     [16, 2, 16, 0],
@@ -22,12 +24,11 @@ let gridLeftTwo = [
     [8, 4, 2, 2]
 ]
 test("Left swipe Case 2", () => {
-    expect(swipe(gridLeftTwo, "right")).toStrictEqual([
+    expect(swipe(gridLeftTwo, "left")).toStrictEqual([
         [2, 16, 0, 0],
         [16, 2, 16, 0],
         [64, 0, 0, 0],
         [8, 4, 4, 0]
-
     ])
 })
 
@@ -35,9 +36,7 @@ test("Left swipe Case 2", () => {
 
 
 
-CurrentuserName = "jack"
 
-CurrentuserName = "atushi
 
 
 
