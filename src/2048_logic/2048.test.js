@@ -98,3 +98,36 @@ test("Up swipe case 2 ", () => {
     ])
 })
 
+
+
+test("Down Swipe Case 1 ", () => {
+    let grid = [
+        [0, 0, 2, 16],
+        [16, 2, 16, 0],
+        [0, 32, 0, 32],
+        [8, 4, 2, 2]
+    ]
+    expect(swipe(grid, "down")).toStrictEqual([
+        [0, 0, 0, 0],
+        [0, 4, 2, 16],
+        [16, 32, 16, 32],
+        [8, 4, 2, 2]
+    ])
+})
+
+
+test("Down Swipe case 2 ", () => {
+    let grid = [
+        [4, 4, 4, 4],
+        [4, 2, 0, 2],
+        [0, 0, 4, 0],
+        [4, 4, 2, 2]
+    ]
+    expect(swipe(grid, "down")).toStrictEqual([
+        [0, 0, 0, 0],
+        [0, 4, 0, 0],
+        [4, 2, 8, 4],
+        [8, 4, 2, 4]
+    ])
+})
+
