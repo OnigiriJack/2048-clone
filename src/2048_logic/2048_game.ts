@@ -1,8 +1,22 @@
 
 // TODO Up and down functions 
 
-// ideas  take each column and turn into a row and process it.
+// push up uses combine left and push down uses combine right
 
+// ideas  take each column and turn into a row and process it.
+/*
+col 1 = [0][0] [1][0] [2][0] [3][0]
+col 2 = [0][1] [1][1] [2][1] [3][1]
+
+
+process each one 
+
+set the newboard equal to those values
+for 
+for (let i = 0; i < 4; i++) {
+    
+}
+*/
 
 
 
@@ -59,7 +73,6 @@ module.exports = function swipe(board: number[][], direction: string) {
     if (direction ===  "right" || direction === "left") {
         board.map(row => {
             //remove zeroes 
-           
             let zerosStrippedArray = row.filter(num => num !== 0);
             //push processed row into result board 
             let afterSwipe: number[] = [];
@@ -70,8 +83,7 @@ module.exports = function swipe(board: number[][], direction: string) {
         });
     } else {
 
-     return board;
-
+         return board;
     }
    
     return newBoard;
