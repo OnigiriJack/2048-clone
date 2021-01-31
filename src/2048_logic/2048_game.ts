@@ -1,3 +1,16 @@
+
+// TODO Up and down functions 
+
+// ideas  take each column and turn into a row and process it.
+
+
+
+
+
+
+
+
+
 function combineRight(strippedArray: number[]) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
@@ -43,16 +56,24 @@ function combineLeft(strippedArray: number[]) {
 }
 module.exports = function swipe(board: number[][], direction: string) {
     let newBoard: number[][] = [];
-    board.map(row => {
-        //remove zeroes 
-        let zerosStrippedArray = row.filter(num => num !== 0);
-        //push processed row into result board 
-        let afterSwipe: number[] = [];
-        if (direction === "right") afterSwipe = combineRight(zerosStrippedArray);
-        if (direction === "left") afterSwipe = combineLeft(zerosStrippedArray);
+    if (direction ===  "right" || direction === "left") {
+        board.map(row => {
+            //remove zeroes 
+           
+            let zerosStrippedArray = row.filter(num => num !== 0);
+            //push processed row into result board 
+            let afterSwipe: number[] = [];
+            if (direction === "right") afterSwipe = combineRight(zerosStrippedArray);
+            if (direction === "left") afterSwipe = combineLeft(zerosStrippedArray);
+    
+            newBoard.push(afterSwipe);
+        });
+    } else {
 
-        newBoard.push(afterSwipe);
-    });
+     return board;
+
+    }
+   
     return newBoard;
 }
 
