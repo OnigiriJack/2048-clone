@@ -1,30 +1,3 @@
-
-// TODO Up and down functions 
-
-// push up uses combine left and push down uses combine right
-
-// ideas  take each column and turn into a row and process it.
-/*
-col 1 = [0][0] [1][0] [2][0] [3][0]
-col 2 = [0][1] [1][1] [2][1] [3][1]
-
-
-process each one 
-
-set the newboard equal to those values
-for 
-for (let i = 0; i < 4; i++) {
-    
-}
-*/
-
-
-
-
-
-
-
-
 function combineRight(strippedArray: number[]) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
@@ -78,33 +51,41 @@ module.exports = function swipe(board: number[][], direction: string) {
             let afterSwipe: number[] = [];
             if (direction === "right") afterSwipe = combineRight(zerosStrippedArray);
             if (direction === "left") afterSwipe = combineLeft(zerosStrippedArray);
-    
             newBoard.push(afterSwipe);
         });
     } else {
-        // create mini arrays
-         newBoard = [
-                 [0, 0, 2, 16],
-             [0, 16, 2, 16],
-             [0, 0, 0, 64],
-             [0, 128, 4, 2]
-         ];
-         let col1 = combineLeft([board[0][0], board[1][0], board[2][0], board[3][0]].filter(num => num !== 0))    
-         let col2 = combineLeft([board[0][1], board[1][1], board[2][1], board[3][1]].filter(num => num !== 0))
-         let col3 = combineLeft([board[0][2], board[1][2], board[2][2], board[3][2]].filter(num => num !== 0))
-         let col4 = combineLeft([board[0][3], board[1][3], board[2][3], board[3][3]].filter(num => num !== 0))
-         console.log(col4)
-         for (let i = 0; i < 4; i++) {
-             newBoard[i][0] = col1[i]
-             newBoard[i][1] = col2[i]
-             newBoard[i][2] = col3[i]
-             newBoard[i][3] = col4[i]
-         }
-         //console.log("newvoalkansflknasdfkjadsnf;knasdjfnsad;jfds;fh;ahsdf;has;dfhas;jkjsdahkjlahfkljdhkljafhdkjahfkjhadfkhaskldfhsdkard " )
-         console.log(newBoard)
-         return newBoard
+        newBoard = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+           ];
+        if (direction === "up") {
+            let col1 = combineLeft([board[0][0], board[1][0], board[2][0], board[3][0]].filter(num => num !== 0))    
+            let col2 = combineLeft([board[0][1], board[1][1], board[2][1], board[3][1]].filter(num => num !== 0))
+            let col3 = combineLeft([board[0][2], board[1][2], board[2][2], board[3][2]].filter(num => num !== 0))
+            let col4 = combineLeft([board[0][3], board[1][3], board[2][3], board[3][3]].filter(num => num !== 0))
+            for (let i = 0; i < 4; i++) {
+                newBoard[i][0] = col1[i]
+                newBoard[i][1] = col2[i]
+                newBoard[i][2] = col3[i]
+                newBoard[i][3] = col4[i]
+            }
+           // return newBoard
+        } else {
+            let col1 = combineRight([board[0][0], board[1][0], board[2][0], board[3][0]].filter(num => num !== 0))    
+            let col2 = combineRight([board[0][1], board[1][1], board[2][1], board[3][1]].filter(num => num !== 0))
+            let col3 = combineRight([board[0][2], board[1][2], board[2][2], board[3][2]].filter(num => num !== 0))
+            let col4 = combineRight([board[0][3], board[1][3], board[2][3], board[3][3]].filter(num => num !== 0))
+            for (let i = 0; i < 4; i++) {
+                newBoard[i][0] = col1[i]
+                newBoard[i][1] = col2[i]
+                newBoard[i][2] = col3[i]
+                newBoard[i][3] = col4[i]
+            }
+            //return newBoard
+        }
     }
-   
     return newBoard;
 }
 

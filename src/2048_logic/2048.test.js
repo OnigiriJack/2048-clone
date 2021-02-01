@@ -109,7 +109,7 @@ test("Down Swipe Case 1 ", () => {
     ]
     expect(swipe(grid, "down")).toStrictEqual([
         [0, 0, 0, 0],
-        [0, 4, 2, 16],
+        [0, 2, 2, 16],
         [16, 32, 16, 32],
         [8, 4, 2, 2]
     ])
