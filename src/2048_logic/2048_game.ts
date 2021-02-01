@@ -82,6 +82,11 @@ module.exports = function swipe(board: number[][], direction: string) {
             newBoard.push(afterSwipe);
         });
     } else {
+        // create mini arrays
+         let col1 = [board[0][0], board[1][0], board[2][0], board[3][0]]
+         let col2 = [board[0][1], board[1][1], board[2][1], board[3][1]]
+         let col3 = [board[0][2], board[1][2], board[2][2], board[3][2]]
+         let col4 = [board[0][2], board[1][2], board[2][2], board[3][2]]
 
          return board;
     }
