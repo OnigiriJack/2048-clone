@@ -1,12 +1,8 @@
 function combineRight(strippedArray: number[]) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
-        //console.log("here" + strippedArray[strippedArray.length - 2])
-       // console.log("first " + strippedArray[strippedArray.length - 2] + "second "+ strippedArray[strippedArray.length - 1])
         for (let i = strippedArray.length - 1; i >= 0; i--) {
-        //   console.log(strippedArray[i] + i )
             if (strippedArray[i + 1] === strippedArray[i]) {
-                
                 strippedArray[i + 1] = strippedArray[i] * 2;
                 strippedArray[i] = 0;
             }
@@ -71,7 +67,6 @@ module.exports = function swipe(board: number[][], direction: string) {
                 newBoard[i][2] = col3[i]
                 newBoard[i][3] = col4[i]
             }
-           // return newBoard
         } else {
             let col1 = combineRight([board[0][0], board[1][0], board[2][0], board[3][0]].filter(num => num !== 0))    
             let col2 = combineRight([board[0][1], board[1][1], board[2][1], board[3][1]].filter(num => num !== 0))
@@ -83,7 +78,6 @@ module.exports = function swipe(board: number[][], direction: string) {
                 newBoard[i][2] = col3[i]
                 newBoard[i][3] = col4[i]
             }
-            //return newBoard
         }
     }
     return newBoard;
