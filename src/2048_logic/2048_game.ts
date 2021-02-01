@@ -83,12 +83,26 @@ module.exports = function swipe(board: number[][], direction: string) {
         });
     } else {
         // create mini arrays
-         let col1 = [board[0][0], board[1][0], board[2][0], board[3][0]]
-         let col2 = [board[0][1], board[1][1], board[2][1], board[3][1]]
-         let col3 = [board[0][2], board[1][2], board[2][2], board[3][2]]
-         let col4 = [board[0][2], board[1][2], board[2][2], board[3][2]]
-
-         return board;
+         newBoard = [
+                 [0, 0, 2, 16],
+             [0, 16, 2, 16],
+             [0, 0, 0, 64],
+             [0, 128, 4, 2]
+         ];
+         let col1 = combineLeft([board[0][0], board[1][0], board[2][0], board[3][0]].filter(num => num !== 0))    
+         let col2 = combineLeft([board[0][1], board[1][1], board[2][1], board[3][1]].filter(num => num !== 0))
+         let col3 = combineLeft([board[0][2], board[1][2], board[2][2], board[3][2]].filter(num => num !== 0))
+         let col4 = combineLeft([board[0][3], board[1][3], board[2][3], board[3][3]].filter(num => num !== 0))
+         console.log(col4)
+         for (let i = 0; i < 4; i++) {
+             newBoard[i][0] = col1[i]
+             newBoard[i][1] = col2[i]
+             newBoard[i][2] = col3[i]
+             newBoard[i][3] = col4[i]
+         }
+         //console.log("newvoalkansflknasdfkjadsnf;knasdjfnsad;jfds;fh;ahsdf;has;dfhas;jkjsdahkjlahfkljdhkljafhdkjahfkjhadfkhaskldfhsdkard " )
+         console.log(newBoard)
+         return newBoard
     }
    
     return newBoard;
