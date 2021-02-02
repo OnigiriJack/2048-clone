@@ -1,7 +1,5 @@
 import swipe from "./2048_game.js"
 
-
-
 test("Left swipe Case 1", () => {
     let gridLeftOne = [
         [4, 4, 4, 4],
@@ -131,3 +129,11 @@ test("Down Swipe case 2 ", () => {
     ])
 })
 
+
+test("Adds new number to board after swipe", () => {
+    expect("this").toBe("Needs to be implemented")
+})
+
+test("Handles Game over and no moves available", () => {
+    expect("this").toBe("Needs to be implemented")
+})
