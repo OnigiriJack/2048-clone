@@ -80,6 +80,9 @@ function swipe(board: number[][], direction: string) {
             }
         }
     }
+    // Add another Two
+    let coords = findOpenLocation(newBoard);
+    newBoard[coords[0]][coords[1]] = 2;
     return newBoard;
 }
 

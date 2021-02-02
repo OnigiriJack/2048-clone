@@ -86,6 +86,9 @@ function swipe(board, direction) {
             }
         }
     }
+    // Add another Two
+    var coords = findOpenLocation(newBoard);
+    newBoard[coords[0]][coords[1]] = 2;
     return newBoard;
 }
 exports.swipe = swipe;
