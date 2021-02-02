@@ -1,4 +1,4 @@
-const swipe = require("./2048_game.js")
+import swipe from "./2048_game.js"
 
 
 

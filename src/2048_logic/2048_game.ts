@@ -83,3 +83,6 @@ module.exports = function swipe(board: number[][], direction: string) {
     return newBoard;
 }
 
+
+
+export {}
