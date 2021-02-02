@@ -37,7 +37,7 @@ function combineLeft(strippedArray: number[]) {
     //return proccessed row
     return strippedArray
 }
-module.exports = function swipe(board: number[][], direction: string) {
+function swipe(board: number[][], direction: string) {
     let newBoard: number[][] = [];
     if (direction ===  "right" || direction === "left") {
         board.map(row => {
@@ -83,6 +83,32 @@ module.exports = function swipe(board: number[][], direction: string) {
     return newBoard;
 }
 
+function randomNum() {
+   return Math.floor(Math.random() * Math.floor(4));
+}
 
+function findOpenLocation(board: number[][]) {
+    let x = randomNum();
+    let y = randomNum();
+    do {
+        x = randomNum();
+        y = randomNum();
+    } while (board[x][y] > 0)
+    return [x,y];
+}
 
-export {}
+function createBoard() {
+    let board = [
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0]
+    ]
+
+    board[randomNum()][randomNum()] = 2;
+    let loc = findOpenLocation(board);
+    board[loc[0]][loc[1]] = 2
+    return board;
+}
+
+export {swipe, createBoard};

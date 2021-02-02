@@ -1,10 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.createBoard = exports.swipe = void 0;
 function combineRight(strippedArray) {
     // Addition algorithm 
     if (strippedArray.length > 1) {
-        //console.log("here" + strippedArray[strippedArray.length - 2])
-        // console.log("first " + strippedArray[strippedArray.length - 2] + "second "+ strippedArray[strippedArray.length - 1])
         for (var i = strippedArray.length - 1; i >= 0; i--) {
-            //   console.log(strippedArray[i] + i )
             if (strippedArray[i + 1] === strippedArray[i]) {
                 strippedArray[i + 1] = strippedArray[i] * 2;
                 strippedArray[i] = 0;
@@ -39,7 +39,7 @@ function combineLeft(strippedArray) {
     //return proccessed row
     return strippedArray;
 }
-module.exports = function swipe(board, direction) {
+function swipe(board, direction) {
     var newBoard = [];
     if (direction === "right" || direction === "left") {
         board.map(function (row) {
@@ -72,7 +72,6 @@ module.exports = function swipe(board, direction) {
                 newBoard[i][2] = col3[i];
                 newBoard[i][3] = col4[i];
             }
-            // return newBoard
         }
         else {
             var col1 = combineRight([board[0][0], board[1][0], board[2][0], board[3][0]].filter(function (num) { return num !== 0; }));
@@ -85,8 +84,33 @@ module.exports = function swipe(board, direction) {
                 newBoard[i][2] = col3[i];
                 newBoard[i][3] = col4[i];
             }
-            //return newBoard
         }
     }
     return newBoard;
-};
+}
+exports.swipe = swipe;
+function randomNum() {
+    return Math.floor(Math.random() * Math.floor(4));
+}
+function findOpenLocation(board) {
+    var x = randomNum();
+    var y = randomNum();
+    do {
+        x = randomNum();
+        y = randomNum();
+    } while (board[x][y] > 0);
+    return [x, y];
+}
+function createBoard() {
+    var board = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+    board[randomNum()][randomNum()] = 2;
+    var loc = findOpenLocation(board);
+    board[loc[0]][loc[1]] = 2;
+    return board;
+}
+exports.createBoard = createBoard;
