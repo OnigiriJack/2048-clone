@@ -1,7 +1,12 @@
 # 2048 React.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+## Need to Do
+  - Tests for end of game
+  - Deploy to Google or Amazon
+  - Add high score in DB or in serverless
+  - Handle end game edge case
+  
 ## Available Scripts
 
 In the project directory, you can run:
