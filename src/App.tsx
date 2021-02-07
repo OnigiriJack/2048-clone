@@ -1,50 +1,43 @@
 import React from 'react';
 import Grid from "./2048_grid";
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { swipe, createBoard } from "./2048_logic/2048_game"
 
+function useKey(key: any, cb: any) {
+  const callbackref = useRef(cb)
+  useEffect(() => {
+    callbackref.current = cb;
+  })
+  useEffect(() => {
+    function handle(e: any) {
+      if (e.code === key) {
+        callbackref.current(e)
+      }
+    }
+    document.addEventListener("keypress", handle);
+    return () => document.removeEventListener("keypress", handle)
+  }, [key])
+}
 
 function App() {
+
+  useKey("KeyD", () => setBoard(swipe(board, "right")));
+  useKey("KeyW", () => setBoard(swipe(board, "up")));
+  useKey("KeyS", () => setBoard(swipe(board, "down")));
+  useKey("KeyA", () => setBoard(swipe(board, "left")));
+
   const [board, setBoard] = useState([[0]])
-  window.addEventListener('keyup', move);
-
-  function move(direction: any) {
-    // console.log(direction.keyCode)
-    // let dir = "";
-    // if (direction.keycode === 38) dir = "up";
-    // if (direction.keycode === 40) dir = "down";
-    // if (direction.keycode === 37) dir = "left";
-    // if (direction.keycode === 39) dir = "right";
-
-    setBoard(swipe(board, direction))
-  }
 
   useEffect(() => {
-    let freshBoard = createBoard();
-    console.log(freshBoard)
-    setBoard(freshBoard);
+    setBoard(createBoard());
   }, []);
 
-
   return (
-    <div onKeyUp={move} className="App">
-
-      <h1>hello world</h1>
+    <div className="App">
+      <h1>2048 clone</h1>
+      <h2>Use the W,A,S,D arrow keys to move the tiles</h2>
       <Grid board={board} />
-      <button onClick={() => move("up")}>
-        up
-      </button>
-      <button onClick={() => move("down")}>
-        down
-      </button>
-      <button onClick={() => move("right")}>
-        right
-      </button>
-      <button onClick={() => move("left")}>
-        left
-      </button>
-
     </div>
   );
 }
