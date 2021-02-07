@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <h1>2048 clone</h1>
-      <h2>Use the W,A,S,D arrow keys to move the tiles</h2>
+      <h2>Use the W, A, S, D arrow keys to move the tiles</h2>
       <Grid board={board} />
     </div>
   );
