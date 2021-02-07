@@ -1,24 +1,9 @@
 import React from 'react';
 import Grid from "./2048_grid";
 import './App.css';
-import { useState, useEffect, useRef } from 'react';
-import { swipe, createBoard } from "./2048_logic/2048_game"
-
-function useKey(key: any, cb: any) {
-  const callbackref = useRef(cb)
-  useEffect(() => {
-    callbackref.current = cb;
-  })
-  useEffect(() => {
-    function handle(e: any) {
-      if (e.code === key) {
-        callbackref.current(e)
-      }
-    }
-    document.addEventListener("keypress", handle);
-    return () => document.removeEventListener("keypress", handle)
-  }, [key])
-}
+import { useState, useEffect } from 'react';
+import { swipe, createBoard } from "./2048_logic/2048_game";
+import useKey from "./useKey";
 
 function App() {
 
