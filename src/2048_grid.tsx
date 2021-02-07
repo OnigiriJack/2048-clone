@@ -1,10 +1,11 @@
 
-function Grid(board: number[][]) {
+function Grid(props: any) {
+
     function colorSelector(num: number) {
-        if (num == 2) return "#81591c";
-        if (num == 4) return "#d1c4e9";
-        if (num == 8) return "#7e57c2";
-        if (num == 16) return "#512da8";
+        if (num === 2) return "#81591c";
+        if (num === 4) return "#d1c4e9";
+        if (num === 8) return "#7e57c2";
+        if (num === 16) return "#512da8";
         if (num == 32) return "#311b92";
         if (num == 64) return "#2196f3";
         if (num == 128) return "#0d47a1";
@@ -19,7 +20,7 @@ function Grid(board: number[][]) {
         <div className="board">
             <table>
                 <tbody>
-                    {board.map((row: number[], index: number) => {
+                    {props.board.map((row: number[], index: number) => {
                         return (
                             <tr>
                                 <td style={{ backgroundColor: colorSelector(row[0]) }}>{row[0]}</td>
